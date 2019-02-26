@@ -1,0 +1,47 @@
+<!--pages/detail/detail.wxml-->
+<view class="topImg" >
+    <view class="bigImg" >
+        <image src="{{topImg.src}}" class="first">
+        </image>
+    </view>
+    <view class="sImg" bindtouchstart="start" bindtouchmove="move" bindtouchend="end" style="margin-left:{{left}}px;">
+        <image src="{{item.src}}" class="smallImg"  wx:for="{{imgSrc}}" wx:key="item.id">
+        </image>
+    </view>
+
+</view>
+<view class="shopCon">
+    <text>请选择商品</text>
+    <view class="shopItem"  wx:for="{{itemSrc}}" wx:key="item.id">
+        <view class="detail">
+        <image class="leftImg" src="{{item.src}}">
+        </image>
+        <view class="itemInfo">
+         <text>
+            {{item.title}}
+        </text>
+         <text>
+            ￥{{item.price}}
+        </text>
+        </view>
+        </view>
+       <view class="change">
+         <image src="{{item.subIcon}}" class="sub" bindtap="subItem" wx:if="{{item.count>0}}" data-info="{{item}}"> </image>
+        <text  wx:if="{{item.count>0}}" class="price">{{item.count}}</text>
+        <image src="{{item.addIcon}}" class="add" bindtap="addItem" data-info="{{item}}"> </image>
+        
+       </view>
+       
+    </view>
+</view>
+<view class="sum">
+    <view style="margin-left:70rpx;">
+    <text>
+    {{selectN}}份礼品
+    </text>
+    <text>￥{{sumPrice}}</text>
+    </view>
+    <view  class='{{sumPrice==0?"pay":"payNow"}}' bindTap="buy">
+    购买
+    </view>
+</view>

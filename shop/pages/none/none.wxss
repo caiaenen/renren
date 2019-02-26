@@ -1,0 +1,8 @@
+/* pages/none/none.wxss */
+.contain{
+    text-align: center;
+}
+.txt{
+    font-size: 12px;
+    color: grey;
+}

@@ -1,0 +1,22 @@
+<!--pages/home/home.wxml-->
+<swiper
+  indicator-dots autoplay  >
+  <block wx:for="{{imgUrls}}" wx:key="item.id" mode="aspectFill">
+    <swiper-item class="nav-item">
+      <image src="{{item.src}}" class="slide-image"  />
+    </swiper-item>
+  </block>
+</swiper>
+<view class="text">咖啡+祝福 即刻表心意</view>
+<view class="con" >
+     <view wx:for="{{cardImg}}" wx:key="item.id" class="card"  id="tapTest" >
+    <view slot="content">
+    <image src="{{item.src}}" mode="aspectFill" lazy-load  data-id="{{item.id}}" bindtap="tapName"></image>
+    </view>
+    <view slot="footer">{{item.title}}</view>
+</view>
+</view>
+<view class="buy" bindtap="goBuy"  >
+    <image src="{{endSrc}}">
+    </image>
+</view>

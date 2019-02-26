@@ -1,0 +1,10 @@
+<!--pages/none/none.wxml-->
+
+<view >
+<image src="{{noneImg}}" mode="aspectFill" lazy-load>
+
+</image>
+</view>
+<view class="contain">
+<text class="txt">购物车中无物品</text>
+</view>

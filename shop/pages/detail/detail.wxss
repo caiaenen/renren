@@ -1,0 +1,111 @@
+/* pages/detail/detail.wxss */
+.topImg{
+    margin-left: 80rpx;
+    overflow: hidden;
+}
+.bigImg{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    box-sizing: border-box;
+    align-items: center;
+    flex-direction: row; 
+    flex-wrap: wrap;
+}
+.first{
+    width:400rpx;
+    height:270rpx;
+    border-radius: 20rpx;
+    box-shadow: 1px 0 1px  #ccc;
+}
+.sImg{
+    width:350px;
+    box-sizing: border-box;
+    margin-top: 40rpx;
+    overflow: hidden;
+    height:100rpx;
+}
+.smallImg{
+    width:150rpx;
+    height:90rpx;
+    margin-left: 30rpx;
+    border-radius: 20rpx;
+    box-shadow: 1px 0 1px  #ccc;
+}
+
+.shopCon{
+    margin-left: 70rpx;
+    margin-right: 70rpx;
+    margin-top: 80rpx;
+    font-size: 10px;
+}
+.shopItem{
+    display: flex;
+    border-bottom: 1rpx solid #ccc;
+    height:100rpx;
+    margin-top: 20rpx;
+    justify-content: space-between;
+}
+.detail{
+    display: flex;
+}
+.itemInfo{
+    margin-left: 80rpx;
+    display: flex;
+    flex-direction: column;
+}
+.itemInfo text{
+    margin-top: -20rpx;
+}
+.leftImg{
+    height:80rpx;
+    width:80rpx;
+}
+.change{
+    display: flex;
+    justify-content: center;
+    height:150rpx;
+    width:150rpx;
+    margin-top: 40rpx;
+    margin-left: -40rpx;
+    margin-bottom: 170rpx;
+}
+.add,.sub{
+    height:45rpx;
+    width:45rpx;
+}
+.price{
+    border-bottom:1rpx solid #7bf;
+}
+.sum{
+    width:100%;
+    font-size: 15px;
+    font:600;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    height:150rpx;
+    width:100%;
+    border-top: 1rpx solid #ccc;
+    background: #fff;
+    -ms-flex-align: center;
+}
+.pay,.payNow{
+    margin-right: 70rpx;
+    margin-top: 40rpx;
+    height:80rpx;
+    width: 150rpx;
+    border-radius: 40rpx;
+    text-align: center;
+    line-height: 80rpx;
+    font:800;
+    color: #fff;
+}
+
+.pay{
+    background: #ccc;
+}
+.payNow{
+     background: #7bf;
+}
