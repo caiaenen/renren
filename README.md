@@ -1,2 +1,2 @@
 # renren
-renren-vue
+starbucks小程序仿写
