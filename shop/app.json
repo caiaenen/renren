@@ -4,8 +4,8 @@
     "pages/detail/detail",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/none/none"
-    
+    "pages/none/none",
+    "pages/collect/collect"
   ],
   "window": {
     "backgroundTextStyle": "light",

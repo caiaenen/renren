@@ -3,10 +3,14 @@
   indicator-dots autoplay  >
   <block wx:for="{{imgUrls}}" wx:key="item.id" mode="aspectFill">
     <swiper-item class="nav-item">
-      <image src="{{item.src}}" class="slide-image"  />
+      <image src="{{item.src}}" class="slide-image"/>
     </swiper-item>
   </block>
 </swiper>
+<view class="shou" bindtap="collect">
+  <image src="{{shou}}"></image>
+  <text>您收藏的卡面</text>
+</view>
 <view class="text">咖啡+祝福 即刻表心意</view>
 <view class="con" >
      <view wx:for="{{cardImg}}" wx:key="item.id" class="card"  id="tapTest" >

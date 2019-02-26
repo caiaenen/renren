@@ -15,6 +15,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shou:'../img/详情/shou.png',
     imgUrls:[
       {id:"1",src:'../img/swiper/01.png'},
       {id:"2",src:'../img/swiper/02.png'},
@@ -36,7 +37,11 @@ Page({
       url:'../../pages/detail/detail?id='+id
     })
   },
-
+  collect:function(e){
+    wx.navigateTo({
+      url:'../../pages/collect/collect'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

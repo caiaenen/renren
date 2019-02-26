@@ -1,0 +1,18 @@
+<!--pages/collect/collect.wxml-->
+<view class="con" wx:if="{{isF}}">
+     <view wx:for="{{it}}" wx:key="item.id" class="card"  id="tapTest" >
+    <view slot="content">
+    <image src="{{item.src}}" mode="aspectFill" lazy-load  data-id="{{item.id}}" bindtap="tapName"></image>
+    </view>
+    <view slot="footer">您的收藏
+    </view>
+</view>
+</view>
+<view class="noCollect" wx:if="{{!isF}}">
+    <text>您没收藏任何卡面</text>
+    <view class="goTo">
+         <text  bindtap="toColllect">前往收藏</text>
+    </view>
+</view>
+
+

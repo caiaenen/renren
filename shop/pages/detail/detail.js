@@ -1,5 +1,6 @@
 // pages/detail/detail.js
 var startX, endX;
+var app = getApp();
 Page({
 
   /**
@@ -7,21 +8,22 @@ Page({
    */
   
   data: {
+      imgSrc:[
+      {id:'1',isSelect:false,isFavorite:false,src:'../img/详情/01.png',selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+      {id:'2',isSelect:false,isFavorite:false,src:'../img/详情/02.png',selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+      {id:'3',isSelect:false,isFavorite:false,src:'../img/详情/03.png',selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+      {id:'4',isSelect:false,isFavorite:false,src:'../img/详情/04.png',selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+      {id:'5',isSelect:false,isFavorite:false,src:'../img/详情/05.png',selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+    ],
+        imgUrls:[
+      {id:"1",src:'../img/swiper/01.png',isSelect:false,isFavorite:false,selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+      {id:"2",src:'../img/swiper/02.png',isSelect:false,isFavorite:false,selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+      {id:"3",src:'../img/swiper/03.png',isSelect:false,isFavorite:false,selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+      {id:"4",src:'../img/swiper/04.png',isSelect:false,isFavorite:false,selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+    ],
+    
     left:0,
-    imgUrls:[
-      {id:"1",src:'../img/swiper/01.png'},
-      {id:"2",src:'../img/swiper/02.png'},
-      {id:"3",src:'../img/swiper/03.png'},
-      {id:"4",src:'../img/swiper/04.png'},
-    ],
     topImg:'',
-    imgSrc:[
-      {id:'1',src:'../img/详情/01.png'},
-      {id:'2',src:'../img/详情/02.png'},
-      {id:'3',src:'../img/详情/03.png'},
-      {id:'4',src:'../img/详情/04.png'}, 
-      {id:'5',src:'../img/详情/05.png'},
-    ],
     itemSrc:[
       {id:'1',src:'../img/详情/cup.png',title:'当季特饮',price:'30',count:'0', addIcon:'../img/详情/add.png',subIcon:'../img/详情/sub.png'},
       {id:'2',src:'../img/详情/cup.png',title:'焦糖玛奇朵',price:'24',count:'0', addIcon:'../img/详情/add.png',subIcon:'../img/详情/sub.png'},
@@ -47,13 +49,10 @@ Page({
       this.setData({
         itemSrc:nowItem
       })
-      console.log(s.length)
 
       for(let i=0;i<s.length;i++){
-        console.log(s[i].count)
         sum+=s[i].count*s[i].price
       }
-      console.log(sum)
      this.setData({
         sumPrice:sum
      })
@@ -78,37 +77,81 @@ Page({
     move:function(e){
       endX = e.touches[0].pageX; // 获取触摸时的原点
       var move=endX-startX;
-     var query = wx.createSelectorQuery();
-    //选择id
-    // var that=this
-    // query.select('.sImg').boundingClientRect(function (rect) {
-    //   console.log(rect)
-    //   if(rect.right>390){
-    //     rect.right=390
-    //   }else if(rect<100){
-    //     rect.right=100
-    //   }
-    //   else {
-    //     that.setData({
-    //       left:move
-    //     })
-    //   }
-    // }).exec();
-
-      
-      
+        if (this.data.left-move>350)
+        {
+            this.setData({
+                left:"350"
+            })
+        }else if(this.data.left-move<0){
+            this.setData({
+                left:"0"
+            })
+        }else{
+            this.setData({
+                    left:move
+                })
+        }
     },
-
     end:function(e){
       
     },
-  
+    changeSlt:function(e){
+      var s=this.data.imgSrc
+      var id=e.target.dataset.id
+      for(var i=0;i<s.length;i++){
+        if(i==id){
+          s[i].isSelect=true;
+        }else{
+          s[i].isSelect=false
+        }
+      }
+      this.setData({
+        imgSrc:s
+      })
+    },
+    changeFavo:function(e){
+      var s=this.data.imgSrc
+      console.log(app.globalData.favo)
+      for(var i=0;i<s.length;i++){
+         var sr=s[i].src
+        if(s[i].isSelect){
+          if(s[i].isFavorite==true){
+             s[i].isFavorite=false;
+             for( var j=0;j<app.globalData.favo.length;j++){
+              if(app.globalData.favo[j].src==sr){
+                app.globalData.favo.pop(s[i])
+              }
+            }
+          }
+        else{
+          s[i].isFavorite=true
+          if(app.globalData.favo.length>0){
+            for( j=0;j<app.globalData.favo.length;j++){
+              console.log(app.globalData.favo[j].src)
+              if(app.globalData.favo[j].src==sr){
+                break;
+              }
+              app.globalData.favo.push(s[i])
+              break;
+            }
+          }
+          else if(app.globalData.favo.length==0){
+            app.globalData.favo.push(s[i])
+            break;
+          }
+        }}
+      }
+      this.setData({
+        imgSrc:s
+      })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var img=this.data.imgUrls[options.id-1]
-    img.id='0'
+    img.id='0';
+    img.isSelect="true"
     this.data.imgSrc.unshift(img)
     var nowImg=this.data.imgSrc
     this.setData({

@@ -1,6 +1,6 @@
 /* pages/home/home.wxss */
 .nav-item{
-    height:420rpx;
+    height:500rpx;
     width:50%;
 }
 .con{
@@ -12,7 +12,7 @@
     align-items: center;
     flex-direction: row; 
     flex-wrap: wrap;
-    height: 300px
+    height: 300px;
 }
 .card{
     width:45%;
@@ -20,6 +20,7 @@
     box-shadow: 1px 0 1px  #ccc;
 }
 .text{
+    clear: both;
     margin-left:12px;
     margin-top: 10px;
     font-size:12px;
@@ -41,4 +42,15 @@
     width: 80rpx;
     height: 80rpx;
     margin-left: 10rpx;
+}
+.shou{
+    margin: 30px;
+    float: right;
+}
+.shou image{
+    width: 60rpx;
+    height:60rpx;
+}
+.shou text{
+    font-size:11px;
 }

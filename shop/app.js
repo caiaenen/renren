@@ -34,6 +34,20 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    //   imgSrc:[
+    //   {id:'1',isFavorite:false,src:'../img/详情/01.png'},
+    //   {id:'2',isFavorite:false,src:'../img/详情/02.png'},
+    //   {id:'3',isFavorite:false,src:'../img/详情/03.png'},
+    //   {id:'4',isFavorite:false,src:'../img/详情/04.png'},
+    //   {id:'5',isFavorite:false,src:'../img/详情/05.png'},
+    // ],
+    // userInfo: null,
+    //     imgUrls:[
+    //   {id:"1",src:'../img/swiper/01.png',isFavorite:false},
+    //   {id:"2",src:'../img/swiper/02.png',isFavorite:false},
+    //   {id:"3",src:'../img/swiper/03.png',isFavorite:false},
+    //   {id:"4",src:'../img/swiper/04.png',isFavorite:false},
+    // ],
+    favo:[],
   }
 })
