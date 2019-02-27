@@ -2,10 +2,15 @@
 <view class="con" wx:if="{{isF}}">
      <view wx:for="{{it}}" wx:key="item.id" class="card"  id="tapTest" >
     <view slot="content">
-    <image src="{{item.src}}" mode="aspectFill" lazy-load  data-id="{{item.id}}" bindtap="tapName"></image>
+    <image src="{{item.src}}" mode="aspectFill" lazy-load></image>
     </view>
-    <view slot="footer">您的收藏
-    </view>
+    <view slot="footer" class="footer">您的收藏
+        <view class="choose"  data-id="{{item.id}}" bindtap="change">
+         <image src="{{item.favorite}}" wx:if="{{item.isFavorite}}" ></image>
+        <image src="{{item.noFavorite}}" wx:else ></image>
+        </view>
+        </view>
+       
 </view>
 </view>
 <view class="noCollect" wx:if="{{!isF}}">

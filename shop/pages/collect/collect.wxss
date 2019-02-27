@@ -43,3 +43,18 @@ text{
     width:300rpx;
     height: 200rpx;
 }
+.footer{
+    position: relative;
+}
+.choose{
+    position: absolute;
+    width:40rpx;
+    height: 40rpx;
+     right:20rpx;
+    bottom: 5rpx;
+}
+.footer image{
+    width:40rpx;
+    height: 40rpx;
+   
+}

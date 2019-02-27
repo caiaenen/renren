@@ -13,7 +13,7 @@ Page({
       {id:'2',isSelect:false,isFavorite:false,src:'../img/详情/02.png',selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
       {id:'3',isSelect:false,isFavorite:false,src:'../img/详情/03.png',selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
       {id:'4',isSelect:false,isFavorite:false,src:'../img/详情/04.png',selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
-      {id:'5',isSelect:false,isFavorite:false,src:'../img/详情/05.png',selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
+      
     ],
         imgUrls:[
       {id:"1",src:'../img/swiper/01.png',isSelect:false,isFavorite:false,selectUrl:"../img/详情/select.png",source:"../img/详情/favorite.png",favorite:'../img/详情/favorite.png',noFavorite:'../img/详情/noFavorite.png'},
@@ -111,34 +111,15 @@ Page({
     },
     changeFavo:function(e){
       var s=this.data.imgSrc
-      console.log(app.globalData.favo)
       for(var i=0;i<s.length;i++){
          var sr=s[i].src
         if(s[i].isSelect){
           if(s[i].isFavorite==true){
              s[i].isFavorite=false;
-             for( var j=0;j<app.globalData.favo.length;j++){
-              if(app.globalData.favo[j].src==sr){
-                app.globalData.favo.pop(s[i])
-              }
-            }
           }
         else{
           s[i].isFavorite=true
-          if(app.globalData.favo.length>0){
-            for( j=0;j<app.globalData.favo.length;j++){
-              console.log(app.globalData.favo[j].src)
-              if(app.globalData.favo[j].src==sr){
-                break;
-              }
-              app.globalData.favo.push(s[i])
-              break;
-            }
-          }
-          else if(app.globalData.favo.length==0){
-            app.globalData.favo.push(s[i])
-            break;
-          }
+          
         }}
       }
       this.setData({
@@ -185,8 +166,22 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
-  },
+   var s=this.data.imgSrc
+   for(var i=0;i<s.length;i++){
+     if(s[i].isFavorite==true){
+      //  var sr=this.data.imgSrc[i].src
+      //  var len=app.globalData.favo.length
+      //   for(var j=0;j<len;j++){
+      //     if(app.globalData.favo[j].src==sr){
+      //       break
+      //     }
+          app.globalData.favo.push(s[i])
+          
+        }
+          
+       }
+    //  }
+    },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

@@ -8,6 +8,7 @@ Page({
   data: {
     isF:false,
     it:app.globalData.favo
+
   },
   toColllect:function(){
     var id=1
@@ -15,18 +16,31 @@ Page({
        url:'../../pages/detail/detail?id='+id
     })
   },
+  change:function(e){
+    var s=this.data.it
+    console.log(e.target.dataset.id,s)
+    for(var i=0;i<this.data.it.length;i++){
+      if(s[i].id==e.target.dataset.id)
+      {
+        s[i].isFavorite=false
+        this.setData({
+          it:s
+        })
+        app.globalData.favo.pop(app.globalData.favo[i])
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.favo)
     if(app.globalData.favo.length){
       this.setData({
-        isF:true
+        isF:true,
+        it:app.globalData.favo
       })
     }
-
   },
 
   /**
