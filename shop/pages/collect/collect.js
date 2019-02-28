@@ -18,15 +18,37 @@ Page({
   },
   change:function(e){
     var s=this.data.it
-    console.log(e.target.dataset.id,s)
     for(var i=0;i<this.data.it.length;i++){
-      if(s[i].id==e.target.dataset.id)
+      if(s[i].src==e.target.dataset.src)
       {
-        s[i].isFavorite=false
+        if(s[i].isFavorite==true){
+           s[i].isFavorite=false
+            wx.showToast({
+            title: '取消收藏',
+            icon:'loading',
+            mask:true,
+            duration: 1000
+            })
+        }else {
+          console.log(1)
+           s[i].isFavorite=true
+            wx.showToast({
+            title: '重新收藏',
+            icon:'success',
+            mask:true,
+            duration: 1000
+            })
+        }
         this.setData({
           it:s
-        })
-        app.globalData.favo.pop(app.globalData.favo[i])
+        })  
+      }
+      
+    }
+     app.globalData.favo=[]
+    for(var i=0;i<this.data.it.length;i++){
+      if(s[i].isFavorite==true){
+        app.globalData.favo.push(s[i])
       }
     }
   },
@@ -68,7 +90,8 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+   
+    
   },
 
   /**

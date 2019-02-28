@@ -5,9 +5,9 @@
     <image src="{{item.src}}" mode="aspectFill" lazy-load></image>
     </view>
     <view slot="footer" class="footer">您的收藏
-        <view class="choose"  data-id="{{item.id}}" bindtap="change">
-         <image src="{{item.favorite}}" wx:if="{{item.isFavorite}}" ></image>
-        <image src="{{item.noFavorite}}" wx:else ></image>
+        <view class="choose" >
+         <image src="{{item.isFavorite?item.favorite:item.noFavorite}}"     data-src="{{item.src}}" bindtap="change"></image>
+       
         </view>
         </view>
        

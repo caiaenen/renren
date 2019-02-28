@@ -109,17 +109,26 @@ Page({
         imgSrc:s
       })
     },
-    changeFavo:function(e){
+    changeFavo:function(){
       var s=this.data.imgSrc
       for(var i=0;i<s.length;i++){
-         var sr=s[i].src
         if(s[i].isSelect){
           if(s[i].isFavorite==true){
              s[i].isFavorite=false;
+            wx.showToast({
+            title: '取消收藏',
+            icon:'loading',
+            mask:true,
+            duration: 1000,
+        })
           }
         else{
           s[i].isFavorite=true
-          
+          wx.showToast({
+            title: '收藏成功',
+            mask:true,
+            duration: 1000,
+        })
         }}
       }
       this.setData({
@@ -139,6 +148,15 @@ Page({
       topImg:img,
       imgSrc:nowImg
     })
+    // wx.request({
+    //   url: "http://jsonplaceholder.typicode.com/users",
+    //   header: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   success: function(res) {
+    //     console.log(res)
+    //   }
+    // })
   },
 
   /**

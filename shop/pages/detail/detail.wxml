@@ -3,12 +3,10 @@
     <view class="bigImg"  wx:for="{{imgSrc}}" wx:key="item.id">
         <image src="{{item.src}}" wx:if="{{item.isSelect}}" class="first">
         </image>
-        <view class="favo" wx:if="{{item.isFavorite}}" bindtap="changeFavo">
-            <image src="{{item.favorite}}" wx:if="{{item.isSelect}}" ></image>
+        <view class="favo" bindtap="changeFavo">
+            <image src="{{item.isFavorite?item.favorite:item.noFavorite}}" wx:if="{{item.isSelect}}" ></image>
         </view>
-        <view class="favo" wx:else bindtap="changeFavo" >
-            <image src="{{item.noFavorite}}" wx:if="{{item.isSelect}}" ></image>
-        </view>
+        
     </view> 
     <view class="sImg" bindtouchstart="start" bindtouchmove="move" bindtouchend="end" style="margin-left:{{left}}px;">
         <view class="co"  wx:for="{{imgSrc}}" wx:key="item.id">
